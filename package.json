@@ -2,7 +2,7 @@
 	"name": "aware",
 	"version": "1.0.0",
 	"description": "Aware is a cat",
-	"main": "src/index.js",
+	"main": "main.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start:prod": "node .",
@@ -16,7 +16,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/thegeeknova/xeone.git"
+		"url": "git+https://github.com/thegeeknova/aware.git"
 	},
 	"keywords": [
 		"public",
@@ -24,11 +24,11 @@
 	],
 	"author": "thegeeknova",
 	"license": "UNLICENSED",
-	"bugs": "https://github.com/xenofic/thegeeknova/issues",
-	"homepage": "https://github.com/xenofic/thegeeknova#readme",
+	"bugs": "https://github.com/thegeeknova/aware/issues",
+	"homepage": "https://github.com/thegeeknova/aware#readme",
 	"dependencies": {
 		"@iamtraction/google-translate": "github:iamtraction/google-translate",
-		"@pheonix/framework": "^10.0.2",
+		"@sapphire/framework": "^5.0.5",
 		"@prisma/client": "^4.15.0",
 		"axios": "^1.3.4",
 		"discord.js": "^14.14.1",
