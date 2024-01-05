@@ -1,3 +1,4 @@
+// aint no way 😏😏😏😏😏
 require('module-alias/register');
 require('dotenv').config();
 const BaseClient = require('@core/BaseClient');
