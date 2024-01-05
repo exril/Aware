@@ -16,16 +16,16 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/xenofic/xeone.git"
+		"url": "git+https://github.com/thegeeknova/xeone.git"
 	},
 	"keywords": [
 		"public",
 		"bot"
 	],
-	"author": "xenofic",
+	"author": "thegeeknova",
 	"license": "UNLICENSED",
-	"bugs": "https://github.com/xenofic/xeone/issues",
-	"homepage": "https://github.com/xenofic/xeone#readme",
+	"bugs": "https://github.com/xenofic/thegeeknova/issues",
+	"homepage": "https://github.com/xenofic/thegeeknova#readme",
 	"dependencies": {
 		"@iamtraction/google-translate": "github:iamtraction/google-translate",
 		"@pheonix/framework": "^10.0.2",
