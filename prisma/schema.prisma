@@ -1,0 +1,94 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Users {
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  blacklisted Boolean  @default(false)
+  noPrefix    Boolean  @default(false)
+
+  @@unique([id])
+}
+
+model Guilds {
+  id          String          @id @default(uuid())
+  afks        Afks[]
+  settings    GuildSettings[]
+  giveaways   Giveaways[]
+  antinukes   Antinuke?
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  blacklisted Boolean         @default(false)
+
+  @@unique([id])
+}
+
+model Afks {
+  userId    String   @id @default(uuid())
+  reason    String
+  timestamp BigInt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Guilds    Guilds?  @relation(fields: [guildId], references: [id])
+  guildId   String?
+
+  @@unique([guildId])
+}
+
+model GuildSettings {
+  id              String   @id @default(uuid())
+  prefix          String?
+  roles           Json?
+  stickyNicknames Json[]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  Guilds          Guilds?  @relation(fields: [guildId], references: [id])
+  guildId         String?
+
+  @@unique([guildId])
+}
+
+model Giveaways {
+  id         String   @id @default(uuid())
+  messageId  String
+  channelId  String
+  guildId    String?
+  prize      String
+  endAt      BigInt
+  winners    Int
+  active     Boolean
+  attachment String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  Guilds     Guilds?  @relation(fields: [guildId], references: [id])
+
+  @@unique([guildId, messageId])
+}
+
+model Antinuke {
+  id         String          @id @default(uuid())
+  logChannel String?
+  guildId    String?
+  events     Json[]
+  whitelist  String[]
+  punishment PunishmentType?
+  createdAt  DateTime        @default(now())
+  updatedAt  DateTime        @updatedAt
+  Guilds     Guilds?         @relation(fields: [guildId], references: [id])
+
+  @@unique([guildId])
+}
+
+enum PunishmentType {
+  ban
+  kick
+  timeout
+  removeroles
+}

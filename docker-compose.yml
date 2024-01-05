@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - "postgres_data:/var/lib/postgresql/data"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: awarebot
+      POSTGRES_USER: awarebot
+      POSTGRES_DB: awaredb
+      POSTGRES_PORT: 5432
+
+  redis:
+    image: redis
+    volumes:
+      - "redis_data:/redis/data"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    env_file: .env
+    command: yarn prod
+
+volumes:
+  redis_data:
+  postgres_data:
