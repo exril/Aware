@@ -13,5 +13,3 @@ const client = new BaseClient({
 		IntentsBitField.Flags.GuildModeration,
 	],
 });
-
-client.init();
