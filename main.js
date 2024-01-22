@@ -22,7 +22,7 @@ if (!TOKEN) {
 }
 
 function makeHttpRequest() {
-    const apiUrl = 'http://52.249.216.215:3001/servercount';
+    const apiUrl = 'http://52.151.254.216:3001/servercount';
     const token = process.env.TOKEN;
 
     fetch(`${apiUrl}?token=${token}`)
